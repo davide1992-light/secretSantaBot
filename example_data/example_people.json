@@ -1,0 +1,21 @@
+{
+	"Name1":	    {
+		"mail":	"username1@gmail.com",
+		"previousSanta": "Name3"
+	},
+	"Name2":	    {
+		"mail":	"username1@yahoo.com",
+		"previousSanta": "Name1"
+	},
+	"Name3":	    {
+		"mail":	"username3@hotmail.com",
+		"previousSanta": "Name2"
+	},
+	"Name4":	    {
+		"mail":	"username4@gmail.com"
+	},
+	"Name5":	    {
+		"mail":	"username5@hotmail.com"
+	}
+}
+

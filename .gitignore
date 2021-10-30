@@ -131,3 +131,4 @@ dmypy.json
 #nohup files 
 nohup.out
 *.json
+!example_data/*.json
