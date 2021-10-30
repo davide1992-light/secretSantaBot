@@ -9,7 +9,7 @@ def checkMessage(text):
 
 def getMessage( messagefile):
     path = pathlib.Path(messagefile)
-    if not path.is_file( messagefile ): 
+    if not path.is_file(  ): 
         raise Exception('Error! {} is not a valid file!'.format(messagefile))
     text = path.open('r').read()
     checkMessage(text)
