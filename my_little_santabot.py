@@ -47,7 +47,7 @@ if __name__ == '__main__':
     for santa, receiversanta in goodSantaPermutation.items():
         SantaBot.send_mail( message.format( sender=santa, receiver=receiversanta),
                            'Ho! Ho! Ho!',
-                           people_data[receiversanta]['mail'])
+                           people_data[santa]['mail'])
     
         
     deleteAllSentEmails(SANTA_MAIL, SANTA_PASS, IMAP_SERVER)
