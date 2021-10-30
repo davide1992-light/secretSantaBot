@@ -4,7 +4,6 @@ import email
 class MailBot:
     def __init__(self, username, password, smtpServer, smtpPort):
         self.smtp = smtplib.SMTP(smtpServer, smtpPort)
-
         self.smtp.ehlo() # Hostname to send for this command defaults to the fully qualified domain name of the local host.
         self.smtp.starttls() #Puts connection to SMTP server in TLS mode
         self.smtp.ehlo()
