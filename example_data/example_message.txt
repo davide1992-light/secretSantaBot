@@ -1,0 +1,6 @@
+Hey {sender}!
+
+You have to donate your heart, or whatever you want to {receiver}.
+
+Cheers, 
+                                                    Mr. Santa Bot
