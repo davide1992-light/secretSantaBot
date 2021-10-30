@@ -1,13 +1,13 @@
 import sys 
+import random 
 from utils.envVariables import *
 from utils.jsonValidator import getJSONdata
 from utils.mailBot import MailBot
 from utils.emailDeleter import deleteAllSentEmails
 from utils.checkMessageFile import getMessage
-import random 
 
 if __name__ == '__main__':
-    try: 
+    try:        #first we check that both the necessary arguments are passed to the script
         peopleFile, messageFile = sys.argv[1], sys.argv[2]
     except:
         raise Exception('\n\npeoplefile argument or messagefile are missing\n\ncorrect usage: python3 my_littlesantabot.py peoplefile messagefile')
@@ -18,6 +18,7 @@ if __name__ == '__main__':
     SantasWannabe = list(people_data.keys())
     NSantas = len(SantasWannabe) 
     
+    #just a normal check on the number of people in the people file; if there are less than three santas, doesn't make sense to do a secret santa...
     if NSantas == 0:
         print('Nobody in the file..')
         raise SystemExit()
@@ -28,6 +29,7 @@ if __name__ == '__main__':
         print('Well if there are only two people, it is not exactly a "secret" santa')
         raise SystemExit()
     
+    #we extract here the names, however we check that the extraction obey certan rules
     goodSantaPermutation = None
     while True:
         shuffledSantas = random.sample(SantasWannabe, k=NSantas)
@@ -35,6 +37,7 @@ if __name__ == '__main__':
         good = True 
         
         for santa, othersanta in SantaToOtherSanta.items():
+            #check for a good permutation (SEE README)
             if (santa == othersanta) or (SantaToOtherSanta[othersanta] == santa) or (othersanta == people_data[santa]['previousSanta']):        
                 good = False 
                 break 

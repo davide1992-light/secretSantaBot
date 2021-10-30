@@ -3,7 +3,8 @@ import os
 
 load_dotenv()
 
-def __getEnvVariable( varName ):
+def __getEnvVariable( varName ):    
+    #just check if an environment variable exist
     varValue = os.getenv( varName )
     if varValue is None:
         raise Exception(f'{varName} not present in .env file')
