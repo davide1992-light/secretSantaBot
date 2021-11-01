@@ -34,10 +34,19 @@ an example of .env file can be found in example_data/example_env
 you need two input files: 
 1. a "peoplefile" which specifies the partecipants to the secret santa;
 2. a "messagefile" which describes the template of the email sent by Mr. Santa Bot 
+3. (optional) an "--address" flag to add if you want to include the address of the gift receiver.
 
 After you've created the two files, you use the script simply by typing 
 
 ```python3 my_little_santabot.py /path/to/peoplefile /path/to/messagefile```
+
+or if you also wish to have addresses in the mails:
+
+```python3 my_little_santabot.py /path/to/peoplefile /path/to/messagefile  --address```
+
+You can also get these informations, by typing:
+
+```python3 my_little_santabot.py --help```
 
 Below, you can find how to set the peoplefile and the messagefile 
 
@@ -46,7 +55,11 @@ Below, you can find how to set the peoplefile and the messagefile
 The peoplefile must be a valid JSON file, where each entry must correspond to a user of the secret santa. To each user must be associated 
 a "mail" property (required) which gets back the email of the user, and a "previousSanta" property (optional) which tells you the previousSanta of the user.
 
+_IF_ the "--address" flag has been used, then also an "address" property is required.
+
 _An example file is present in example_data/example_people.json_
+
+_Another example, with addresses, is present in example_data/example_people_address.json_
 
 If no previousSanta is specified for a user, than it is assumed that there is no previousSanta and it will be ignored when generating the random permutation.
 
@@ -54,6 +67,9 @@ If no previousSanta is specified for a user, than it is assumed that there is no
 
 Just a normal text file that is going to be the template for your santabot emails. Just write the normal email, and whenever you would write the name of 
 the santa put the string "{sender}", while whenever you would put the name of the receiver of the gift put the string "{receiver}".
+
+_IF_ the "--address" flag has been used, then also an "{address}"  string must be present in the template file, as it will tell secret santa bot, where to 
+insert the receiver's address.
 
 _An example file is present in example_data/example_message.txt_
 
