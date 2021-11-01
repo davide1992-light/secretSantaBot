@@ -1,0 +1,26 @@
+{
+	"Name1":	    {
+		"mail":	"username1@gmail.com",
+		"previousSanta": "Name3", 
+		"address": "4, Via Babbo Natale Segreto, Padova, Italy"
+	},
+	"Name2":	    {
+		"mail":	"username1@yahoo.com",
+		"previousSanta": "Name1", 
+		"address": "42, geheimerweihnachtsmannstraße, Freiburg Im Breisgau, Germany"
+	},
+	"Name3":	    {
+		"mail":	"username3@hotmail.com",
+		"previousSanta": "Name2", 
+		"address": "63 Himitsu no Santa, Sakyo Ward, Kyoto, 606-8342, Japan"
+	},
+	"Name4":	    {
+		"mail":	"username4@gmail.com", 
+		"address": "17 Secret Santa St, Thurso, UK"
+	},
+	"Name5":	    {
+		"mail":	"username5@hotmail.com",
+		"address": "3 Av. Père Noël secret, 1750 Luxembourg"
+	}
+}
+
