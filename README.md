@@ -70,7 +70,7 @@ insert the receiver's address.
 
 _An example file is present in example_data/example_message.txt_
 
-_An example file with the {address} string is present in example_data/example_message.txt_
+_An example file with the {address} string is present in example_data/example_message_address.txt_
 
 
 
