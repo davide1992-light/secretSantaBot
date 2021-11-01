@@ -5,15 +5,23 @@ from utils.jsonValidator import getJSONdata
 from utils.mailBot import MailBot
 from utils.emailDeleter import deleteAllSentEmails
 from utils.checkMessageFile import getMessage
+import argparse
 
 if __name__ == '__main__':
-    try:        #first we check that both the necessary arguments are passed to the script
-        peopleFile, messageFile = sys.argv[1], sys.argv[2]
-    except:
-        raise Exception('\n\npeoplefile argument or messagefile are missing\n\ncorrect usage: python3 my_littlesantabot.py peoplefile messagefile')
-    
-    people_data = getJSONdata(peopleFile)
-    message = getMessage(messageFile)
+    parser = argparse.ArgumentParser(prog='SecretSantaBot', 
+                                     description='A program that helps you create a secret-santa with your distant friends.' )
+    parser.add_argument('peopleFile', type=str, metavar='peopleFile', 
+                        help="file which contains info about who's partecipating to the secret santa")
+    parser.add_argument('messageFile', type=str, metavar='messageFile', 
+                         help="file which contains a template of the mail tha will be sent to your friends")
+    parser.add_argument('-a', '--address', action='store_true', 
+                        help='if this flag is used, address of the person will be sent together with the emails')
+    args = vars(parser.parse_args())
+    peopleFile, messageFile, address = args['peopleFile'], args['messageFile'], args['address']
+
+
+    people_data = getJSONdata(peopleFile, address=address)
+    message = getMessage(messageFile, addressFlag=address)
     
     SantasWannabe = list(people_data.keys())
     NSantas = len(SantasWannabe) 
@@ -48,7 +56,7 @@ if __name__ == '__main__':
     SantaBot = MailBot(SANTA_MAIL, SANTA_PASS, SMTP_SERVER, SMTP_PORT)
     
     for santa, receiversanta in goodSantaPermutation.items():
-        SantaBot.send_mail( message.format( sender=santa, receiver=receiversanta),
+        SantaBot.send_mail( message.format( sender=santa, receiver=receiversanta, address=people_data[receiversanta]['address']),
                            'Ho! Ho! Ho!',
                            people_data[santa]['mail'])
     
