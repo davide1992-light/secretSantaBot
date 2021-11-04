@@ -18,6 +18,8 @@ Requires python3, and the library dotenv which can be installed using
 
 In alternative, one can use the file requirements.txt in the main folder and create a virtual environment.
 
+WARNING the script has been tested only on GMAIL servers
+
 Finally, one must set a proper .env file with the necessary environment variables:
 * ```SANTA_MAIL```: the email that will be used by Mr. Santa Bot
 * ```SANTA_PASSWORD```: the password necessary to access the above mail box 
