@@ -53,6 +53,6 @@ if __name__ == '__main__':
                       subject='Ho! Ho! Ho!',
                       message=message.format( sender=santa, receiver=receiversanta))
         
-    deleteAllSentEmails(SANTA_MAIL, SANTA_PASS, IMAP_SERVER)
+    deleteAllSentEmails(SANTA_MAIL, SANTA_PASS, IMAP_SERVER, 'Ho! Ho! Ho!')
     
     
