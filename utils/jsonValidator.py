@@ -11,7 +11,7 @@ def validateJSON(jsonFile):
     return True   
     
 
-def getJSONdata(jsonFilepath):
+def getJSONdata(jsonFilepath, addressFlag=False):
     #given the path to a file, returns the json data
     
     Filepath = pathlib.Path(jsonFilepath)
@@ -25,6 +25,10 @@ def getJSONdata(jsonFilepath):
     Users = set(data.keys()) 
     if not all( 'mail' in data[user] for user in Users):        #all the people present in the JSON must have a "mail" attribute
         raise Exception('Some people do not have a corresponding email')
+    
+    if addressFlag and not all( 'address' in data[user] for user in Users):
+        raise Exception('When using the --address option, all people must have a corresponding address')
+
     for user in Users:
         if not 'previousSanta' in data[user]:           #if a previous santa is not define for a user, it is set to the default value ''
             data[user]['previousSanta'] = ''
