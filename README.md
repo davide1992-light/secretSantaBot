@@ -15,10 +15,7 @@ Let A and B be two participants to the secret santa:
 
 # Getting Started 
 
-Requires python3, and the library dotenv which can be installed using
-```pip install python-dotenv```
-
-In alternative, one can use the file requirements.txt in the main folder and create a virtual environment.
+Libraries requirements are present in the file requirements.txt.
 
 Finally, one must set a proper .env file with the necessary environment variables:
 * ```SANTA_MAIL```: the email that will be used by Mr. Santa Bot
