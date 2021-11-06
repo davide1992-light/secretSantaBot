@@ -1,7 +1,2 @@
-SANTA_MAIL=username@hotmail.com
+SANTA_MAIL=username@gmail.com
 SANTA_PASSWORD=password
-
-IMAP_SERVER=imap-mail.outlook.com
-
-SMTP_SERVER=smtp.live.com
-SMTP_PORT=25
