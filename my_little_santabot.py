@@ -2,9 +2,10 @@ import sys
 import random 
 from utils.envVariables import *
 from utils.jsonValidator import getJSONdata
-from utils.mailBot import MailBot
 from utils.emailDeleter import deleteAllSentEmails
 from utils.checkMessageFile import getMessage
+
+from mailer import Mailer 
 
 if __name__ == '__main__':
     try:        #first we check that both the necessary arguments are passed to the script
@@ -45,14 +46,13 @@ if __name__ == '__main__':
             goodSantaPermutation = SantaToOtherSanta
             break   
     
-    SantaBot = MailBot(SANTA_MAIL, SANTA_PASS, SMTP_SERVER, SMTP_PORT)
-    
+
+    SantaBot = Mailer(email=SANTA_MAIL, password=SANTA_PASS)
     for santa, receiversanta in goodSantaPermutation.items():
-        SantaBot.send_mail( message.format( sender=santa, receiver=receiversanta),
-                           'Ho! Ho! Ho!',
-                           people_data[santa]['mail'])
-    
+        SantaBot.send(receiver=people_data[santa]['mail'],
+                      subject='Ho! Ho! Ho!',
+                      message=message.format( sender=santa, receiver=receiversanta))
         
-    deleteAllSentEmails(SANTA_MAIL, SANTA_PASS, IMAP_SERVER)
+    deleteAllSentEmails(SANTA_MAIL, SANTA_PASS, IMAP_SERVER, 'Ho! Ho! Ho!')
     
     

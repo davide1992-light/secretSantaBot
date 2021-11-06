@@ -1,6 +1,8 @@
 # secretSantaBot
 just a stupid Python3 script to organize a secret santa with your friends
 
+WARNING to be used one must set a proper GMAIL (ONLY) server to be used by the script. For setup, see the "how to setup a gmail account" section (TODO)
+
 Mr. Santa Bot will send you and your friends an email with the name of the lucky person who will receive a gift from you! 
 After the mail has been sent, Mr. Santa Bot is smart enough to go to the email box, and delete the sent emails.
 
@@ -18,18 +20,11 @@ Requires python3, and the library dotenv which can be installed using
 
 In alternative, one can use the file requirements.txt in the main folder and create a virtual environment.
 
-WARNING the script has been tested only on GMAIL servers
-
 Finally, one must set a proper .env file with the necessary environment variables:
 * ```SANTA_MAIL```: the email that will be used by Mr. Santa Bot
 * ```SANTA_PASSWORD```: the password necessary to access the above mail box 
-* ```IMAP_SERVER```: the IMAP server used by the provider of the SANTA_MAIL account
-* ```SMTP_SERVER```: the SMTP server used by the provider of the SANTA_MAIL account
-* ```SMTP_PORT```: the port to use for the SMTP service
 
 an example of .env file can be found in example_data/example_env
-
-**NOTE** that you probably have to enable IMAP/SMTP clients manually from your mail provider.
 
 # Usage
 
