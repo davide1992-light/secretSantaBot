@@ -1,0 +1,3 @@
+imap-tools==0.49.1
+python-dotenv==0.19.1
+quick-mailer==0.1.0
