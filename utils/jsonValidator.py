@@ -30,8 +30,10 @@ def getJSONdata(jsonFilepath, addressFlag=False):
         raise Exception('When using the --address option, all people must have a corresponding address')
 
     for user in Users:
-        if not 'previousSanta' in data[user]:           #if a previous santa is not define for a user, it is set to the default value ''
+        if not 'previousSanta' in data[user]:           #if a previous santa is not defined for a user, it is set to the default value ''
             data[user]['previousSanta'] = ''
+        if not 'address' in data[user]:
+            data[user]['address'] = ''
     
     previousSantas = set( data[user]['previousSanta'] for user in Users if data[user]['previousSanta'] != '' )
     if not previousSantas.issubset(Users):                  #check that the previous santas correspond to actual users of the secret santa

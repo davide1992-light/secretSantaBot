@@ -21,7 +21,7 @@ if __name__ == '__main__':
     peopleFile, messageFile, address = args['peopleFile'], args['messageFile'], args['address']
 
 
-    people_data = getJSONdata(peopleFile, address=address)
+    people_data = getJSONdata(peopleFile, addressFlag=address)
     message = getMessage(messageFile, addressFlag=address)
     
     SantasWannabe = list(people_data.keys())
@@ -64,6 +64,6 @@ if __name__ == '__main__':
                       subject='Ho! Ho! Ho!',
                       message=message_text)
         
-    deleteAllSentEmails(SANTA_MAIL, SANTA_PASS, IMAP_SERVER, 'Ho! Ho! Ho!')
+    deleteAllSentEmails(SANTA_MAIL, SANTA_PASS, 'Ho! Ho! Ho!')
     
     
